@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using System.Data.Entity;
 
 namespace Lab3_NgoHuuTai_2087700051.Models
 {
@@ -18,6 +19,7 @@ namespace Lab3_NgoHuuTai_2087700051.Models
         public string Place { get; set; }
         public DateTime DateTime { get; set; }
         public Category Category { get; set; }
+
         [Required]
         public byte CategoryID { get; set; }
     }

@@ -29,10 +29,17 @@ namespace Lab3_NgoHuuTai_2087700051.Controllers
             };
             return View(viewModel);
         }
+
         [Authorize]
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(CourseViewModel viewModel)
         {
+            if(!ModelState.IsValid)
+            {
+                viewModel.Categories = _dbContext.Categories.ToList();
+                return View("Create", viewModel);
+            }    
             var course = new Course
             {
                 LecturerID = User.Identity.GetUserId(),
@@ -42,7 +49,8 @@ namespace Lab3_NgoHuuTai_2087700051.Controllers
             };
             _dbContext.Courses.Add(course);
             _dbContext.SaveChanges();
-            return RedirectToAction("Index","Home");
+
+            return RedirectToAction("Index", "Home");
         }
         
 
