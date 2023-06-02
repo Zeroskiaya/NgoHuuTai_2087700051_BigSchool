@@ -4,6 +4,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace Lab3_NgoHuuTai_2087700051.Models
 {
@@ -14,6 +16,10 @@ namespace Lab3_NgoHuuTai_2087700051.Models
         [Required]
         [StringLength(255)]
         public string Name { get; set; }
+
+        public ICollection<Following> Followers { get; set; }
+        public ICollection<Following> Followees { get; set; }
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -21,6 +27,11 @@ namespace Lab3_NgoHuuTai_2087700051.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public ApplicationUser()
+        {
+            Followers = new Collection<Following>();
+            Followers = new Collection<Following>();
+;        }
     }
 
     
