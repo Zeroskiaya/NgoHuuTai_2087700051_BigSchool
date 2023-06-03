@@ -7,6 +7,6 @@ namespace Lab3_NgoHuuTai_2087700051.DTOs
 {
     public class FollowingDto
     {
-        public string Followed { get; set; }
+        public string FolloweeId { get; set; }
     }
 }

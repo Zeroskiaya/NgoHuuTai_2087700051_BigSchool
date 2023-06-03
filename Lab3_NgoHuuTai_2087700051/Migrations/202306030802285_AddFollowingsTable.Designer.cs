@@ -13,7 +13,7 @@ namespace Lab3_NgoHuuTai_2087700051.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202306020332334_AddFollowingsTable"; }
+            get { return "202306030802285_AddFollowingsTable"; }
         }
         
         string IMigrationMetadata.Source

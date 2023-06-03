@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using System.Data.Entity;
 namespace Lab3_NgoHuuTai_2087700051.Models
 {
     public class ExternalLoginConfirmationViewModel

@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
+using Lab3_NgoHuuTai_2087700051;
 
 namespace Lab3_NgoHuuTai_2087700051.Models
 {

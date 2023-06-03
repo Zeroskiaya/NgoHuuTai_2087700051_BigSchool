@@ -1,7 +1,10 @@
-﻿@model Lab3_NgoHuuTai_2087700051.ViewModels.CoursesViewModel 
+﻿@model Lab3_NgoHuuTai_2087700051.ViewModels.CoursesViewModel
 @{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Attending";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<h2>Attending</h2>
 
 <ul class="course">
     @foreach (var course in Model.UpcommingCourses)
@@ -27,10 +30,7 @@
                 <span class="category">
                     @course.Category.Name
                 </span>
-                @if (Model.ShowAction)
-                {
-                    <button data-course-id="@course.Id" class="btn btn-default btn-sm js-toggle-attendance">Going?</button>
-                }
+
             </div>
         </li>
     }
@@ -38,21 +38,6 @@
 @section scripts
 {
     <script>
-        $(document).ready(function () {
-            $(".js-toggle-attendance").click(function (e) {
-                var button = $(e.target);
-                $.post("/api/attendances", { courseId: button.attr("data-course-id") })
-                    .done(function () {
-                        button
-                            .removeClass("btn-default")
-                            .addClass("btn-info")
-                            .text("Going");
-                    })
-                    .fail(function () {
-                        alert("Something failed!!!");
-                    });
-            });
-
             $(".js-toggle-follow").click(function (e) {
                 var button = $(e.target);
                 $.post("/api/followings", { followeeId: button.attr("data-user-id") })
